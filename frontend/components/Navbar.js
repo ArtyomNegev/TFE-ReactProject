@@ -1,14 +1,24 @@
 import Link from "next/link";
+import StyledNavbar from "./styles/StyledNavbar";
 
 const Navbar = () => (
-	<div>
+	<StyledNavbar>
 		<Link href="/">
-			<a> Accueil </a>
+			<a>Accueil</a>
 		</Link>
 		<Link href="/creation">
-			<a> Création </a>
+			<a>Création</a>
 		</Link>
-	</div>
+		<Link href="/articles">
+			<a>Test</a>
+		</Link>
+		<Link href="/commandes">
+			<a>Test</a>
+		</Link>
+		<Link href="/moncompte">
+			<a>Test</a>
+		</Link>
+	</StyledNavbar>
 )
 
 export default Navbar

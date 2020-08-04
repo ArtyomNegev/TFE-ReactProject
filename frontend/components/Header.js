@@ -2,11 +2,34 @@ import Navbar from "./Navbar";
 import styled from "styled-components";
 import Link from "next/link";
 
+const StyledHeader= styled.header`
+	.navbar {
+		/* GRID */
+		display: grid;
+		grid-template-columns: auto 1fr;
+		justify-content: space-between;
+		align-items: stretch;
+		/* Autres Propriétés */
+		border-bottom: 2px solid ${props => props.theme.text};
+		@media (maxwidth: 1200px) {$
+			grid-template-columns: 1fr;
+			justify-content: center;
+		}
+	}
+	.sub-navbar {
+		/* GRID */
+		display: grid;
+		grid-template-columns: auto 1fr;
+		/* Autres Propriétés */
+		border-bottom: 1px solid ${props => props.theme.second};
+	}
+`;
+
 const StyledTitle = styled.h1`
-	font-size: 4rem;
+	font-size: 2rem;
 	margin-left: 1.5rem;
 	position: relative;
-	transform: skew (6deg);
+	transform: skew(-6deg);
 	z-index: 2;
 	a {
 		padding: 0.3rem 0.6rem;
@@ -22,7 +45,7 @@ const StyledTitle = styled.h1`
 `;
 
 const Header = () => (
-	<div>
+	<StyledHeader>
 		{/* NavBar */}
 		<div className="navbar">
 			<StyledTitle>
@@ -40,7 +63,7 @@ const Header = () => (
 		<div>
 			Mon panier
 		</div>
-	</div>
+	</StyledHeader>
 )
 
 export default Header
