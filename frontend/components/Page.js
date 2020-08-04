@@ -27,13 +27,15 @@ const StyledPageContent = styled.div`
 class Page extends Component {
 	render() {
 		return (
-			<StyledPage>
-				<Meta />
-				<Header />
-				<StyledPageContent>
-					{ this.props.children }
-				</StyledPageContent>
-			</StyledPage>
+			<ThemeProvider theme={theme}>
+				<StyledPage>
+					<Meta />
+					<Header />
+					<StyledPageContent>
+						{ this.props.children }
+					</StyledPageContent>
+				</StyledPage>
+			</ThemeProvider>
 		)
 	}
 }
