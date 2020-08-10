@@ -1,10 +1,7 @@
-import React from "react";
-import Link from "next/link"
-
 const home = props => (
 	<div>
-		<p> Home </p>
+		<p> Page d'accueil du site </p>
 	</div>
 )
 
-export default home
+export default home;

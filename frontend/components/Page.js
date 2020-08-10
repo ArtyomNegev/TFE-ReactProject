@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "./Header";
 import Meta from "./Meta";
-import styled, { ThemeProvider } from "styled-components"
+import styled, { ThemeProvider } from "styled-components";
 
 const theme = {
 	primary: "#09b5a6",
@@ -39,4 +39,4 @@ class Page extends Component {
 	}
 }
 
-export default Page
+export default Page;

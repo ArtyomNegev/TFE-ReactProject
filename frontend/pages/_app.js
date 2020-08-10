@@ -1,5 +1,5 @@
 import App from "next/app" ;
-import Page from "../components/Page";
+import Page from "../components/page";
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
@@ -40,4 +40,4 @@ class monApp extends App {
 	}
 }
 
-export default monApp
+export default monApp;

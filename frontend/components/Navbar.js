@@ -6,17 +6,14 @@ const Navbar = () => (
 		<Link href="/">
 			<a>Accueil</a>
 		</Link>
-		<Link href="/creation">
-			<a>Création</a>
+		<Link href="/presentation">
+			<a>Présentation</a>
 		</Link>
-		<Link href="/articles">
-			<a>Articles</a>
+		<Link href="/blog">
+			<a>Blog</a>
 		</Link>
-		<Link href="/commandes">
-			<a>Test</a>
-		</Link>
-		<Link href="/moncompte">
-			<a>Test</a>
+		<Link href="/connexion">
+			<a>Connexion</a>
 		</Link>
 	</StyledNavbar>
 )
