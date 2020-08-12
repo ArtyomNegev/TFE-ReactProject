@@ -1,8 +1,6 @@
-//require('dotenv').config();  //Commentaire car ne fonctionne pas avec le require -> Trouver une solution
-//const createServer = require("createServer");
-//const db = require("db");
-import createServer from "./createServer.js";
-import db from "./db.js";
+require("dotenv").config({ path: "variables.env" });
+const createServer = require("./createServer");
+const db = require("./db");
 
 const server = createServer();
 
@@ -10,11 +8,10 @@ server.start(
 	{
 		cors: {
 			credentials: true,
-			//origin: process.env.FRONTEND_URL
-			origin: "http://localhost:7777"
-		}
+			origin: process.env.FRONTEND_URL,
+		},
 	},
-	response => {
-		console.log(`Serveur démarré http://localhost:${response.port}`);
+	deets => {
+		console.log(`Serveur démarré : http://localhost:${deets.port}`);
 	}
 );
