@@ -1,6 +1,10 @@
 import App from "next/app" ;
 import Page from "../components/page";
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+import { endpoint} from "../config";
+
 
 const GlobalStyle = createGlobalStyle`
 	@font-face {
@@ -29,13 +33,33 @@ const GlobalStyle = createGlobalStyle`
 	}
 `;
 
+const client = new ApolloClient({
+	uri: process.env.NODE_ENV === "development" ? endpoint : endpoint,
+	request: operation => {
+		operation.setContext({
+			fetchOptions: {
+				credentials: "include",
+			},
+			component
+		});
+	}
+})
 class monApp extends App {
+	static async getInitialProps({ Component, ctx }) {
+		let pageProps = {}
+		if (Component.getInitialProps) {
+			pageProps = await Component.getInitialProps(ctx)
+		}
+		return { pageProps }
+	}
 	render() {
 		const { Component, pageProps } = this.props;
 		return (
-			<Page>
-				<Component {...pageProps} />
-			</Page>
+			<ApolloProvider client={client}>
+				<Page>
+					<Component {...pageProps} />
+				</Page>
+			</ApolloProvider>
 		)
 	}
 }
